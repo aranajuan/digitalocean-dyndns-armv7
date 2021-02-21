@@ -1,6 +1,8 @@
-FROM dduportal/rpi-alpine
+FROM curlimages/curl:latest
 MAINTAINER Alper Kanat <me@alperkan.at>
-RUN apk add --update curl jq
+USER root
+RUN apk update \
+ && apk add jq \
+ && rm -rf /var/cache/apk/*
 COPY dyndns.sh /
-USER nobody
 ENTRYPOINT exec /dyndns.sh

@@ -36,7 +36,7 @@ while ( true ); do
                 -H "Content-Type: application/json" \
                 -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
                 -d "$data" \
-                "$url" &> /dev/null
+                "$url"
         fi
     else
         echo "IP wasn't retrieved within allowed interval. Will try $sleep_interval seconds later.."
